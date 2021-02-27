@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { OrdersComponent } from './orders/orders.component';
 import { CustomersComponent } from './customers/customers.component';
 import { ProductsComponent } from './products/products.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,11 +14,11 @@ import { ProductsComponent } from './products/products.component';
     CustomersComponent,
     OrdersComponent,
     ProductsComponent
-
   ],
   imports: [
     BrowserModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
