@@ -1,9 +1,74 @@
-<div class="container card" style="background-color: brown; margin-top: 30px;">
-    <form>
-        <div class="form-group">
-            <input type="text" placeholder="Customer Value" class="form-control col-md-6">
+<div class="container" style="margin-top: 30px;">
+
+    <div style="border:1px indigo solid;padding: 15px;">
+        <div class="form-group"> <label>Basic ngTemplateOutlet</label>
         </div>
-    </form>
-    <ng-content select="[orders]"></ng-content>
-    <ng-content select=".products"></ng-content>
+        <ng-container *ngTemplateOutlet="basictemplate"></ng-container>
+        <ng-template #basictemplate>
+            <b>Sample Template</b>
+        </ng-template>
+    </div>
+
+
+    <div style="border:1px indigo solid;padding: 15px;">
+        <div class="form-group"> <label>ngTemplateOutlet with default value by <b>$implicit</b></label>
+        </div>
+        <ng-container *ngTemplateOutlet="template;
+            context:{$implicit:'MadanMohan'}"></ng-container>
+        <ng-template let-name #template>
+            {{name}}
+        </ng-template>
+    </div>
+
+    <div style="border:1px indigo solid;padding: 15px;">
+        <div class="form-group"> <label>$implict with <b>another</b> value.</label>
+        </div>
+        <ng-container [ngTemplateOutlet]="templateone"
+            [ngTemplateOutletContext]="{$implicit:'MadanMohan', firstMessage:'Message from MadanMohan'}"></ng-container>
+        <ng-template let-messageOne="firstMessage" let-nameOne #templateone>
+            {{nameOne}} -- {{messageOne}}
+        </ng-template>
+
+    </div>
+
+    <div style="border:1px indigo solid;padding: 15px;">
+        <div class="form-group"> <label>$implict <b>(async)</b> value.</label>
+        </div>
+        <ng-container [ngTemplateOutlet]="templatetwo" [ngTemplateOutletContext]="{$implicit:messagePromise | async}">
+        </ng-container>
+        <ng-template let-mymessageTwo #templatetwo>
+            {{mymessageTwo}}
+        </ng-template>
+        <input type="button" value="Click" class="btn btn-success" (click)="GetCustomer()">
+
+    </div>
+
+
+    <div style="border:1px indigo solid;padding: 15px;">
+        <div class="form-group"> <label>WithOut $implicit and With Object</label>
+        </div>
+        <ng-container [ngTemplateOutlet]="templatethree"
+            [ngTemplateOutletContext]="{customer:{'name':'Madan','location':'bangolore'}}">
+        </ng-container>
+        <ng-template let-mymessageThree="customer" #templatethree>
+            {{mymessageThree.name}}
+        </ng-template>
+    </div>
+
+
+    <div style="border:1px indigo solid;padding: 15px;">
+        <div class="form-group"> <label>With <b>ContentChild</b></label>
+        </div>
+        <div [ngTemplateOutlet]="contentCustomerRef">
+        </div>
+    </div>
+
+
+    <div style="border:1px indigo solid; padding: 15px;">
+        <div class="form-group"> <label>With <b>Input Decarator</b></label>
+        </div>
+        <ng-container [ngTemplateOutlet]="ordersTemplateInputRef">
+        </ng-container>
+    </div>
+
 </div>
