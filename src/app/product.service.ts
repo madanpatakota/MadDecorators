@@ -64,14 +64,13 @@ export class ProductService {
     Observer.next(this.HandleData());
   }
 
-  HandleData(data?: IProduct) {
-    console.log("OK", data);
-    return this.Products.filter(x => x.ProductID === data?.ProductID)
+  HandleData(data?) {
+    return this.Products.filter(x => x.ProductID === data)
       ? ["NoData"] : this.products;
   }
 
 
-  productsObservable = new Observable((observer)=>{
+  productsObservable = new Observable((observer) => {
     observer.next(this.HandleData());
   });
 
@@ -84,13 +83,11 @@ export class ProductService {
     //     });
     // });
 
-  
+
 
 
     return new Observable(observer => {
-      observer.next(this.HandleData(data)),
-        observer.error(this.HandleError),
-        observer.complete();
+      observer.next(this.HandleData(data));
     });
   }
 }
