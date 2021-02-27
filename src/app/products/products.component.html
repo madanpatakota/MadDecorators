@@ -1,7 +1,47 @@
-<div  class="container" style="background-color:darkgreen">
+<div class="container" style="margin-top: 30px;">
     <form>
-        <div class="form-group">
-            <input type="text" placeholder="Product Value" class="form-control col-md-6">
-        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Sorting
+                    </th>
+                    <th>
+                        ProductID
+                    </th>
+                    <th>
+                        ProductName
+                    </th>
+                    <th>
+                        QuantityPerUnit
+                    </th>
+                    <th>
+                        UnitPrice
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of Products 
+                | duplicateRemover:['UnitPrice','ProductName','QuantityPerUnit']:'Top8'
+                | trimmer:['QuantityPerUnit(8)','ProductName(5)']">
+                <!-- <tr *ngFor="let product of Products"> -->
+                    <td>
+                        {{product.Sorting}}
+                    </td>
+                    <td>
+                        {{product.ProductID}}
+                    </td>
+                    <td>
+                        {{product.ProductName | uppercase}}
+                    </td>
+                    <td>
+                        {{product.QuantityPerUnit }}
+                    </td>
+                    <td>
+                        {{product.UnitPrice}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </form>
 </div>
