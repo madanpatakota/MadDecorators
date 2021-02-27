@@ -1,42 +1,17 @@
 import {
-  Component, Output, EventEmitter, Input, OnChanges, SimpleChange, SimpleChanges
+  Component
 } from '@angular/core';
 
+import { OrdersComponent } from '../orders/orders.component';
+import { Template } from '@angular/compiler/src/render3/r3_ast';
 
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
   styleUrls: ['./customers.component.css']
 })
-export class CustomersComponent implements OnChanges {
+export class CustomersComponent {
 
-  EmpName = '';
 
-  constructor() {
-  }
 
-  get orderName() {
-    console.log("get is executed");
-    return this.EmpName;
-  }
-
-  @Input('Ordersname')
-  set orderName(orderName) {
-    console.log("set is executed");
-    if(orderName  === undefined){
-      this.EmpName = "No name is defined";
-    }
-    this.EmpName = orderName;
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    this.EmpName = this.orderName;
-    console.log(changes);
-  }
-
-  EmpLocation = '';
-  @Output() CustomerLocationEvent = new EventEmitter<string>();
-  evtSend(EmpLocation: string) {
-    this.CustomerLocationEvent.emit(EmpLocation);
-  }
 }
