@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'MadDecorators';
+  //title = 'AngularDemos';
+
+  customerName = "John";
+
+  evtCustomer() {
+    this.customerName = "John smith";
+  }
+
+  // tslint:disable-next-line: no-inferrable-types
+  details:string = "No content is here";
+  //this.CustomerLocationEvent.emit(EmpLocation);
+  evtCustomerLocation(Locdetails) {
+    this.details = Locdetails;
+  }
+
 }
