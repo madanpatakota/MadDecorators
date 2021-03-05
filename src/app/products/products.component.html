@@ -1,7 +1,9 @@
 <div  class="container" style="background-color:darkgreen">
     <form>
         <div class="form-group">
-            <input type="text" placeholder="Product Value" class="form-control col-md-6">
+            <input type="text" #ProductName placeholder="Product Name" 
+            class="form-control col-md-6">
         </div>
+        <ng-content select=[ProductQuantity]></ng-content>
     </form>
 </div>

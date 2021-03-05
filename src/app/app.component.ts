@@ -10,6 +10,10 @@ export class AppComponent {
 
   customerName = "John";
 
+  Quantity = "10 Units"
+
+  orderID = "10248"
+
   evtCustomer() {
     this.customerName = "John smith";
   }

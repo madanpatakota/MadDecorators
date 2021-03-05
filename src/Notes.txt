@@ -1,0 +1,7 @@
+
+@ViewChild : 
+
+1. you can convert to string to elementref by unknown type ,
+2. you cannot access view child value into the ngaftercontentinit
+3. if you want to access the object of ngcontent then you have to fetch by @input decaraoter of the
+component
