@@ -10,4 +10,20 @@
 <!-- <app-obs-custom-product></app-obs-custom-product> -->
 
 <!-- observer vs subscriber -->
-<app-obs-custom-two></app-obs-custom-two>
+
+<!-- <app-obs-custom-two></app-obs-custom-two> -->
+<!-- -->
+<div *ngFor="let item of itemsSync"  >
+    <app-complete-latest [data]="item" [cusFormGroup]="customerFormGroup"></app-complete-latest>
+</div>
+
+
+
+
+
+
+
+
+
+
+

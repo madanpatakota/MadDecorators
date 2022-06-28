@@ -50,7 +50,7 @@ export class ObsCustomComponent implements OnInit {
 
 
     const SimObservable = Observable.create(this.SimOffersobserverOne);
-    //const SimObservable1 = new Observable<any>(this.SimOffersObserver);
+    const SimObservable1 = new Observable<any>(this.SimOffersObserver);
     //Observable is acting as a datasource
     //Observer which is useful for emitting the data. 
 

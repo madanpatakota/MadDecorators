@@ -9,6 +9,7 @@ import { ObsCustomComponent } from './obs-custom/obs-custom.component';
 import { ObsCustomOneComponent } from './obs-custom-one/obs-custom-one.component';
 import { ObsCustomProductComponent } from './obs-custom-product/obs-custom-product.component';
 import { ObsCustomTwoComponent } from './obs-custom-two/obs-custom-two.component';
+import { CompleteLatestComponent } from './complete-latest/complete-latest.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ObsCustomTwoComponent } from './obs-custom-two/obs-custom-two.component
     ObsCustomComponent,
     ObsCustomOneComponent,
     ObsCustomProductComponent,
-    ObsCustomTwoComponent],
+    ObsCustomTwoComponent,
+    CompleteLatestComponent],
   imports: [
     BrowserModule,
     FormsModule, ReactiveFormsModule,
